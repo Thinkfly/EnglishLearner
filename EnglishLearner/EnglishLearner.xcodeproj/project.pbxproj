@@ -13,6 +13,7 @@
 		DD6A3F021B26DB5400B3A2BA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD6A3F011B26DB5400B3A2BA /* Images.xcassets */; };
 		DD6A3F051B26DB5500B3A2BA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD6A3F031B26DB5500B3A2BA /* LaunchScreen.xib */; };
 		DD6A3F111B26DB5500B3A2BA /* EnglishLearnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3F101B26DB5500B3A2BA /* EnglishLearnerTests.swift */; };
+		DD6A3F1B1B26E5BF00B3A2BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3F1A1B26E5BF00B3A2BA /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		DD6A3F0A1B26DB5500B3A2BA /* EnglishLearnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnglishLearnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A3F0F1B26DB5500B3A2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6A3F101B26DB5500B3A2BA /* EnglishLearnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishLearnerTests.swift; sourceTree = "<group>"; };
+		DD6A3F1A1B26E5BF00B3A2BA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				DD6A3F011B26DB5400B3A2BA /* Images.xcassets */,
 				DD6A3F031B26DB5500B3A2BA /* LaunchScreen.xib */,
 				DD6A3EF81B26DB5400B3A2BA /* Supporting Files */,
+				DD6A3F1A1B26E5BF00B3A2BA /* MenuViewController.swift */,
 			);
 			path = EnglishLearner;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD6A3EFD1B26DB5400B3A2BA /* ViewController.swift in Sources */,
+				DD6A3F1B1B26E5BF00B3A2BA /* MenuViewController.swift in Sources */,
 				DD6A3EFB1B26DB5400B3A2BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +415,7 @@
 				DD6A3F161B26DB5500B3A2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DD6A3F171B26DB5500B3A2BA /* Build configuration list for PBXNativeTarget "EnglishLearnerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				DD6A3F191B26DB5500B3A2BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
