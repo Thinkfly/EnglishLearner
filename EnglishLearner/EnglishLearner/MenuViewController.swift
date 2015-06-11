@@ -24,25 +24,40 @@ class MenuViewController: UIViewController {
         println("宽:" + String(stringInterpolationSegment: Constant.screenWidth))
         println("高:" + String(stringInterpolationSegment: Constant.screenHeight))
         
-        bookTableView.backgroundColor = UIColor.brownColor()
+        let buttonHeight : CGFloat = 50
+        let spHeight : CGFloat = 20
+        
+        let tableHeight = (Constant.screenHeight - spHeight * 3 - buttonHeight) / 2
+        
         self.view.addSubview(bookTableView)
+        bookTableView.backgroundColor = UIColor.brownColor()
         bookTableView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(20)
-            make.left.equalTo(self.view).offset(10)
-            make.right.equalTo(self.view).offset(-10)
-            make.size.height.equalTo(400)
+            make.left.equalTo(self.view).offset(0)
+            make.right.equalTo(self.view).offset(0)
+            make.height.equalTo(tableHeight)
         }
         
-//        mediaTableView.backgroundColor = UIColor.orangeColor()
-//        mediaTableView.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(bookTableView).offset(200)
-//        }
-//
-//        getDataButton.setTitle("刷新数据", forState: UIControlState.Normal)
-//        getDataButton.snp_makeConstraints { (make) -> Void in
-////            make.bottom.equalTo(self.view).offset(-300)
-//            make.center.equalTo(self.view)
-//        }
+        self.view.addSubview(mediaTableView)
+        mediaTableView.backgroundColor = UIColor.orangeColor()
+        mediaTableView.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(bookTableView.snp_bottom).offset(20)
+            make.left.equalTo(self.view).offset(0)
+            make.right.equalTo(self.view).offset(0)
+            make.height.equalTo(tableHeight)
+        }
+
+        self.view.addSubview(getDataButton)
+        getDataButton.backgroundColor = UIColor.greenColor()
+        getDataButton.titleLabel?.textColor = UIColor.whiteColor()
+        getDataButton.setTitle("刷   新", forState: UIControlState.Normal)
+        getDataButton.snp_makeConstraints { (make) -> Void in
+            make.left.equalTo(self.view).offset(0)
+            make.right.equalTo(self.view).offset(0)
+            make.bottom.equalTo(self.view).offset(0)
+            make.centerX.equalTo(self.view)
+            make.height.equalTo(50)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {

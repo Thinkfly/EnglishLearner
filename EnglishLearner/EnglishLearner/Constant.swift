@@ -9,8 +9,8 @@
 import UIKit
 
 struct Constant {
-    static let screenWidth = UIScreen.mainScreen().applicationFrame.maxX
-    static let screenHeight = UIScreen.mainScreen().applicationFrame.maxY
+    static let screenWidth : CGFloat = UIScreen.mainScreen().applicationFrame.maxX
+    static let screenHeight : CGFloat = UIScreen.mainScreen().applicationFrame.maxY
 }
 
 
