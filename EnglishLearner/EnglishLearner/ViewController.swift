@@ -13,6 +13,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let box = UIView()
+        box.backgroundColor = UIColor .blueColor()
+        self.view.addSubview(box)
+        
+        box.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(self.view).offset(20)
+            make.left.equalTo(self.view).offset(20)
+            make.bottom.equalTo(self.view).offset(-20)
+            make.right.equalTo(self.view).offset(-20)
+        }
+        
+        let button = UIButton()
+        button.addTarget(self, action: Selector("buttonClick"), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func buttonClick(){
+
+
     }
 
     override func didReceiveMemoryWarning() {
