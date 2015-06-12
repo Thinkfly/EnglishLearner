@@ -48,7 +48,7 @@ class MenuViewController: UIViewController {
         }
 
         self.view.addSubview(getDataButton)
-        getDataButton.backgroundColor = UIColor.greenColor()
+        getDataButton.backgroundColor = UIColor(red: CGFloat(3.0 / 255.0), green: CGFloat(192.0 / 255.0), blue: CGFloat(198.0 / 255.0), alpha: CGFloat(1.0))
         getDataButton.titleLabel?.textColor = UIColor.whiteColor()
         getDataButton.setTitle("刷   新", forState: UIControlState.Normal)
         getDataButton.snp_makeConstraints { (make) -> Void in
