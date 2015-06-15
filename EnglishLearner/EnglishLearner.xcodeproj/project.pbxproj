@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B15CF97D7657DEBBF665B30 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4B8BD05183486A707F452D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DD1E79EA1B2EBC54005BADD6 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E79E91B2EBC54005BADD6 /* BookTableViewCell.swift */; };
 		DD6A3EFB1B26DB5400B3A2BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */; };
 		DD6A3EFD1B26DB5400B3A2BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3EFC1B26DB5400B3A2BA /* ViewController.swift */; };
 		DD6A3F001B26DB5400B3A2BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6A3EFE1B26DB5400B3A2BA /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		070F50804869F62D2F5A6C59 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6E4B8BD05183486A707F452D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D294EE5A8A8CBA037A8DEF40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		DD1E79E91B2EBC54005BADD6 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		DD6A3EF51B26DB5400B3A2BA /* EnglishLearner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishLearner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A3EF91B26DB5400B3A2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DD1E79E81B2EBC32005BADD6 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DD1E79E91B2EBC54005BADD6 /* BookTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		DD6A3EEC1B26DB5400B3A2BA = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		DD6A3EF71B26DB5400B3A2BA /* EnglishLearner */ = {
 			isa = PBXGroup;
 			children = (
+				DD1E79E81B2EBC32005BADD6 /* TableViewCell */,
 				DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */,
 				DD6A3EFC1B26DB5400B3A2BA /* ViewController.swift */,
 				DD6A3EFE1B26DB5400B3A2BA /* Main.storyboard */,
@@ -296,6 +307,7 @@
 				DD6A3EFD1B26DB5400B3A2BA /* ViewController.swift in Sources */,
 				DD6A3F1B1B26E5BF00B3A2BA /* MenuViewController.swift in Sources */,
 				DD6A3EFB1B26DB5400B3A2BA /* AppDelegate.swift in Sources */,
+				DD1E79EA1B2EBC54005BADD6 /* BookTableViewCell.swift in Sources */,
 				DD6A3F1D1B297D8900B3A2BA /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
