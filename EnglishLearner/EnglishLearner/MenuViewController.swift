@@ -18,8 +18,8 @@ class MenuViewController: UIViewController, UITableViewDataSource {
 //    var mediaTableView : UITableView = UITableView()
     let getDataButton : UIButton = UIButton()
     
-    var bookArray : NSMutableArray?
-    var mediaArray : NSMutableArray?
+    var bookArray : NSMutableArray = NSMutableArray()
+    var mediaArray : NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -131,11 +131,11 @@ class MenuViewController: UIViewController, UITableViewDataSource {
                 } else {
                     switch (filePath.pathExtension) {
                     case "pdf" :
-                        self.bookArray?.addObject(filePath)
+                        self.bookArray.addObject(filePath)
                         break
                         
                     case "mp3" :
-                        self.mediaArray?.addObject(filePath)
+                        self.mediaArray.addObject(filePath)
                         break
                         
                     default:
