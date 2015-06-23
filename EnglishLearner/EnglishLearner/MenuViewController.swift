@@ -40,10 +40,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         getDataButton.titleLabel?.textColor = UIColor.whiteColor()
         getDataButton.setTitle("刷   新", forState: UIControlState.Normal)
         getDataButton.snp_makeConstraints { (make) -> Void in
-            make.left.equalTo(self.view).offset(0)
-            make.right.equalTo(self.view).offset(0)
-            make.bottom.equalTo(self.view).offset(0)
-            make.centerX.equalTo(self.view)
+            make.left.equalTo(self.containerView).offset(0)
+            make.right.equalTo(self.containerView).offset(0)
+            make.bottom.equalTo(self.containerView).offset(0)
+            make.centerX.equalTo(self.containerView)
             make.height.equalTo(50)
         }
         getDataButton.addTarget(self, action: Selector("getData:"), forControlEvents: UIControlEvents.TouchUpInside)
@@ -51,24 +51,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.containerView.addSubview(tableView)
         //tableView.backgroundColor = UIColor.brownColor()
         tableView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(20)
-            make.left.equalTo(self.view).offset(0)
-            make.right.equalTo(self.view).offset(0)
+            make.top.equalTo(self.containerView).offset(20)
+            make.left.equalTo(self.containerView).offset(0)
+            make.right.equalTo(self.containerView).offset(0)
             make.bottom.equalTo(self.getDataButton.snp_top).offset(-20)
         }
         tableView.dataSource      = self
         tableView.delegate        = self
         tableView.tableFooterView = UIView()
         
+        getData()
+        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setContainerWidth(width: CGFloat) {
+        self.containerView.frame = CGRectMake(0, 0, self.containerView.bounds.width - width, self.containerView.bounds.height)
     }
     
 
@@ -85,6 +82,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     //获取本地数据按钮
     @IBAction func getData(sender : UIButton){
 
+        self.getData()
+    }
+    
+    func getData() {
+        
         self.bookArray.removeAllObjects()
         self.mediaArray.removeAllObjects()
         

@@ -9,21 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var menuViewController: MenuViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let box = UIView()
-        box.backgroundColor = UIColor .blueColor()
-        self.view.addSubview(box)
+        self.navigationController?.navigationBarHidden = true
         
-        box.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.view).offset(20)
-            make.left.equalTo(self.view).offset(20)
-            make.bottom.equalTo(self.view).offset(-20)
-            make.right.equalTo(self.view).offset(-20)
-        }
+        menuViewController = MenuViewController()
+        
+        self.view.addSubview(menuViewController.view)
+        
+        menuViewController.setContainerWidth(100)
         
         let button = UIButton()
         button.addTarget(self, action: Selector("buttonClick"), forControlEvents: UIControlEvents.TouchUpInside)
