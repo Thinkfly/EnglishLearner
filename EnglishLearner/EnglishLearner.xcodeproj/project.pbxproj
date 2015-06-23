@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B15CF97D7657DEBBF665B30 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4B8BD05183486A707F452D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DD1E79EA1B2EBC54005BADD6 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E79E91B2EBC54005BADD6 /* BookTableViewCell.swift */; };
+		DD1E79EF1B314BCC005BADD6 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1E79EE1B314BCC005BADD6 /* FileUtils.swift */; };
 		DD6A3EFB1B26DB5400B3A2BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */; };
 		DD6A3EFD1B26DB5400B3A2BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3EFC1B26DB5400B3A2BA /* ViewController.swift */; };
 		DD6A3F001B26DB5400B3A2BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD6A3EFE1B26DB5400B3A2BA /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 		DD6A3F111B26DB5500B3A2BA /* EnglishLearnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3F101B26DB5500B3A2BA /* EnglishLearnerTests.swift */; };
 		DD6A3F1B1B26E5BF00B3A2BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3F1A1B26E5BF00B3A2BA /* MenuViewController.swift */; };
 		DD6A3F1D1B297D8900B3A2BA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6A3F1C1B297D8900B3A2BA /* Constant.swift */; };
+		DDF32AEA1B394A080003C178 /* ResourceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF32AE91B394A080003C178 /* ResourceEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 		6E4B8BD05183486A707F452D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D294EE5A8A8CBA037A8DEF40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1E79E91B2EBC54005BADD6 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		DD1E79EE1B314BCC005BADD6 /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		DD6A3EF51B26DB5400B3A2BA /* EnglishLearner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishLearner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD6A3EF91B26DB5400B3A2BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		DD6A3F101B26DB5500B3A2BA /* EnglishLearnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishLearnerTests.swift; sourceTree = "<group>"; };
 		DD6A3F1A1B26E5BF00B3A2BA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DD6A3F1C1B297D8900B3A2BA /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DDF32AE91B394A080003C178 /* ResourceEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		DD1E79EB1B314B91005BADD6 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DD1E79EE1B314BCC005BADD6 /* FileUtils.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		DD6A3EEC1B26DB5400B3A2BA = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,8 @@
 		DD6A3EF71B26DB5400B3A2BA /* EnglishLearner */ = {
 			isa = PBXGroup;
 			children = (
+				DDF32AE81B3949E80003C178 /* Entity */,
+				DD1E79EB1B314B91005BADD6 /* Tools */,
 				DD1E79E81B2EBC32005BADD6 /* TableViewCell */,
 				DD6A3EFA1B26DB5400B3A2BA /* AppDelegate.swift */,
 				DD6A3EFC1B26DB5400B3A2BA /* ViewController.swift */,
@@ -151,6 +165,14 @@
 				DD6A3F0F1B26DB5500B3A2BA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDF32AE81B3949E80003C178 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DDF32AE91B394A080003C178 /* ResourceEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +227,7 @@
 				TargetAttributes = {
 					DD6A3EF41B26DB5400B3A2BA = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = F2L94GQ87D;
 					};
 					DD6A3F091B26DB5500B3A2BA = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -307,6 +330,8 @@
 				DD6A3EFD1B26DB5400B3A2BA /* ViewController.swift in Sources */,
 				DD6A3F1B1B26E5BF00B3A2BA /* MenuViewController.swift in Sources */,
 				DD6A3EFB1B26DB5400B3A2BA /* AppDelegate.swift in Sources */,
+				DD1E79EF1B314BCC005BADD6 /* FileUtils.swift in Sources */,
+				DDF32AEA1B394A080003C178 /* ResourceEntity.swift in Sources */,
 				DD1E79EA1B2EBC54005BADD6 /* BookTableViewCell.swift in Sources */,
 				DD6A3F1D1B297D8900B3A2BA /* Constant.swift in Sources */,
 			);
@@ -367,7 +392,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Artron Colour Printing Co., Ltd. (29BN9F9KNE)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -389,6 +414,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "2c705f72-c22b-4965-9952-aaef67466795";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,7 +438,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Artron Colour Printing Co., Ltd. (29BN9F9KNE)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -427,6 +453,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "2c705f72-c22b-4965-9952-aaef67466795";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -438,9 +465,11 @@
 			baseConfigurationReference = D294EE5A8A8CBA037A8DEF40 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Artron Colour Printing Co., Ltd. (29BN9F9KNE)";
 				INFOPLIST_FILE = EnglishLearner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2c705f72-c22b-4965-9952-aaef67466795";
 			};
 			name = Debug;
 		};
@@ -449,9 +478,11 @@
 			baseConfigurationReference = 070F50804869F62D2F5A6C59 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Artron Colour Printing Co., Ltd. (29BN9F9KNE)";
 				INFOPLIST_FILE = EnglishLearner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2c705f72-c22b-4965-9952-aaef67466795";
 			};
 			name = Release;
 		};

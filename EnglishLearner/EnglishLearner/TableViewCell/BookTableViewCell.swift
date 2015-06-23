@@ -36,13 +36,15 @@ class BookTableViewCell: UITableViewCell {
     //初始化子视图
     func initSubViews() {
         label = UILabel()
-        label.backgroundColor = UIColor.blueColor()
-        self.contentView .addSubview(label)
+        //label.backgroundColor = UIColor.blueColor()
+        self.contentView.addSubview(label)
         
         label.snp_makeConstraints { (make) -> Void in
             make.centerY.equalTo(self.contentView.snp_centerY)
-            make.leading.equalTo(self.contentView).offset(0)
-            make.trailing.equalTo(self.contentView).offset(0)
+            make.leading.equalTo(self.contentView).offset(30)
+            make.trailing.equalTo(self.contentView).offset(-30)
+            make.top.equalTo(self.contentView).offset(0)
+            make.bottom.equalTo(self.contentView).offset(0)
         }
     }
 

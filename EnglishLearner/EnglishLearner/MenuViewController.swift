@@ -9,16 +9,17 @@
 import UIKit
 import SnapKit
 
-class MenuViewController: UIViewController, UITableViewDataSource {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let IDENTIFIER_TABLEVIEW_BOOK = "IDENTIFIER_TABLEVIEW_BOOK"
+    let IDENTIFIER_TABLEVIEW_BOOK  = "IDENTIFIER_TABLEVIEW_BOOK"
     let IDENTIFIER_TABLEVIEW_MEDIA = "IDENTIFIER_TABLEVIEW_MEDIA"
     
-    let tableView : UITableView = UITableView()
-//    var mediaTableView : UITableView = UITableView()
+    
+    let containerView : UIView = UIView()
+    let tableView : UITableView  = UITableView()
     let getDataButton : UIButton = UIButton()
     
-    var bookArray : NSMutableArray = NSMutableArray()
+    var bookArray : NSMutableArray  = NSMutableArray()
     var mediaArray : NSMutableArray = NSMutableArray()
 
     override func viewDidLoad() {
@@ -29,13 +30,12 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         
         println("宽:" + String(stringInterpolationSegment: Constant.screenWidth))
         println("高:" + String(stringInterpolationSegment: Constant.screenHeight))
+        println("document:" + FileUtils.getDocumentPath())
         
-        let buttonHeight : CGFloat = 50
-        let spHeight : CGFloat = 20
+        self.containerView.frame = self.view.bounds
+        self.view.addSubview(self.containerView)
         
-        let tableHeight = (Constant.screenHeight - spHeight * 3 - buttonHeight) / 2
-        
-        self.view.addSubview(getDataButton)
+        self.containerView.addSubview(getDataButton)
         getDataButton.backgroundColor = UIColor(red: CGFloat(3.0 / 255.0), green: CGFloat(192.0 / 255.0), blue: CGFloat(198.0 / 255.0), alpha: CGFloat(1.0))
         getDataButton.titleLabel?.textColor = UIColor.whiteColor()
         getDataButton.setTitle("刷   新", forState: UIControlState.Normal)
@@ -48,26 +48,17 @@ class MenuViewController: UIViewController, UITableViewDataSource {
         }
         getDataButton.addTarget(self, action: Selector("getData:"), forControlEvents: UIControlEvents.TouchUpInside)
         
-        self.view.addSubview(tableView)
-        tableView.backgroundColor = UIColor.brownColor()
+        self.containerView.addSubview(tableView)
+        //tableView.backgroundColor = UIColor.brownColor()
         tableView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(self.view).offset(20)
             make.left.equalTo(self.view).offset(0)
             make.right.equalTo(self.view).offset(0)
             make.bottom.equalTo(self.getDataButton.snp_top).offset(-20)
         }
-        tableView.dataSource = self
+        tableView.dataSource      = self
+        tableView.delegate        = self
         tableView.tableFooterView = UIView()
-        
-//        self.view.addSubview(mediaTableView)
-//        mediaTableView.backgroundColor = UIColor.orangeColor()
-//        mediaTableView.snp_makeConstraints { (make) -> Void in
-//            make.top.equalTo(bookTableView.snp_bottom).offset(20)
-//            make.left.equalTo(self.view).offset(0)
-//            make.right.equalTo(self.view).offset(0)
-//            make.height.equalTo(tableHeight)
-//        }
-
         
     }
     
@@ -93,57 +84,58 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     
     //获取本地数据按钮
     @IBAction func getData(sender : UIButton){
-        //self.getData()
+
+        self.bookArray.removeAllObjects()
+        self.mediaArray.removeAllObjects()
+        
         self.getDeviceResourceData("")
-    }
-    
-    //获取本地数据
-    func getData() {
         
-        
-        
-        
+        self.tableView.reloadData()
     }
     
     func getDeviceResourceData(fileName : String) {
-        let pathArray : NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        ///Users/app/Library/Developer/CoreSimulator/Devices/9AE9A419-D4B2-4BD2-96A2-6C432D2BDFB7/data/Containers/Data/Application/58585DCF-B506-4EAC-976C-91675CE0245E/Documents
-        if (0 < pathArray.count) {
-            var pathStr : String = pathArray.objectAtIndex(0) as! String
+        
+        var pathStr = FileUtils.getDocumentPath()
+        
+        if !fileName.isEmpty {
+            pathStr = "\(pathStr)/\(fileName)"
+        }
+        
+        let fileManager = NSFileManager.defaultManager()
+        
+        let tempFileList : NSArray = NSArray(array: fileManager.contentsOfDirectoryAtPath(pathStr, error: nil)!)
+        
+        for name in tempFileList {
+            let filePath = "\(pathStr)/\(name)"
             
-            if (!fileName.isEmpty) {
-                pathStr = "\(pathStr)/\(fileName)"
-            }
+            var isDir = ObjCBool(false)
             
-            let fileManager : NSFileManager = NSFileManager.defaultManager()
+            var isExist : Bool = fileManager.fileExistsAtPath(filePath, isDirectory: &isDir)
             
-            let tempFileList : NSArray = NSArray(array: fileManager.contentsOfDirectoryAtPath(pathStr, error: nil)!)
-            
-            for name in tempFileList {
-                let filePath = "\(pathStr)/\(name)"
+            if (isExist && isDir) {
+                self.getDeviceResourceData(name as! String)
+            } else {
                 
-                var isDir = ObjCBool(false)
-                
-                var isExist : Bool = fileManager.fileExistsAtPath(filePath, isDirectory: &isDir)
-                
-                if (isExist && isDir) {
-                    self.getDeviceResourceData(name as! String)
-                } else {
-                    switch (filePath.pathExtension) {
-                    case "pdf" :
-                        self.bookArray.addObject(filePath)
-                        break
-                        
-                    case "mp3" :
-                        self.mediaArray.addObject(filePath)
-                        break
-                        
-                    default:
-                        break
-                    }
+                switch (filePath.pathExtension) {
                     
+                case "pdf" :
+                    let entity = ResourceEntity()
+                    entity.name = name as? String
+                    entity.path = filePath
+                    self.bookArray.addObject(entity)
+                    break
                     
+                case "mp3" :
+                    let entity = ResourceEntity()
+                    entity.name = name as? String
+                    entity.path = filePath
+                    self.mediaArray.addObject(entity)
+                    break
+                    
+                default:
+                    break
                 }
+                
                 
             }
             
@@ -164,10 +156,14 @@ class MenuViewController: UIViewController, UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (0 == section) {
-            return 1
+            return bookArray.count
         } else {
-            return 1
+            return mediaArray.count
         }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -195,7 +191,9 @@ class MenuViewController: UIViewController, UITableViewDataSource {
                 
             }
             
-            bookTableViewCell.label.text = "你好"
+            let entity = self.bookArray.objectAtIndex(indexPath.row) as! ResourceEntity
+            
+            bookTableViewCell.label.text = entity.name
             
         } else {
             
@@ -215,7 +213,9 @@ class MenuViewController: UIViewController, UITableViewDataSource {
                 
             }
             
-            bookTableViewCell.label.text = "我好"
+            let entity = self.mediaArray.objectAtIndex(indexPath.row) as! ResourceEntity
+            
+            bookTableViewCell.label.text = entity.name
             
         }
         
